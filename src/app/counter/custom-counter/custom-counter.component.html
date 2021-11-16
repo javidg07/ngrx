@@ -1,0 +1,12 @@
+<div class="mt-2">
+
+  <input class="shadow appearance-none border rounded py-2 px-3 mr-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " type="number" [(ngModel)]="count">
+  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" (click)="customIncrement()">custom Increment</button>
+</div>
+
+<div class="mt-2">
+  <!-- {{initalName}} -->
+  {{initalName$ | async}}
+  <input class="shadow appearance-none border rounded py-2 px-3 mr-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " type="text" [(ngModel)]="name">
+  <button  class="bg-green-500 hover:bg-green-700 text-white  font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" (click)="changeName()">update Name</button>
+</div>

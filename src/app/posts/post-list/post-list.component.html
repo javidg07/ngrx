@@ -1,0 +1,38 @@
+<div class="flex flex-col">
+  <div class="flex flex-start m-2">
+    <h1 class="m-2 flex text-left font-bold">Posts List</h1>
+    <a [routerLink]="['/posts/add']"><button  class="bg-green-500 hover:bg-green-700 text-white  font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" >New Post</button></a>
+  </div>
+  <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="flex justify-evenly shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+<table class="flex-1 divide-y divide-gray-200" *ngIf="postList$ | async as postData">
+  <thead class="bg-gray-50">
+    <tr>
+      <th scope="col"  class="px-3 py-1 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">id</th>
+      <th scope="col" class="px-3 py-1 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
+      <th  scope="col" class="px-3 py-1 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
+      <th  scope="col" class="px-3 py-1 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
+    </tr>
+  </thead>
+  <tbody  class="bg-white divide-y divide-gray-200">
+    <tr class="text-left" *ngFor="let post of postData">
+      <td class="px-3 py-1 whitespace-nowrap">{{post.id}}</td>
+      <td class="px-3 py-1 whitespace-nowrap">{{post.title}}</td>
+      <td class="px-3 py-1 whitespace-nowrap">{{post.description}}</td>
+      <td>
+        <a [routerLink]="['/posts/edit',post.id]"> <button  class="bg-blue-500 hover:bg-blue-700 text-white   py-2 px-2 rounded focus:outline-none focus:shadow-outline"  >Update</button></a>
+        <a><button (click)="deletePost(post?.id)"  class="ml-2 bg-red-500 hover:bg-red-700 text-white   py-2 px-2 rounded focus:outline-none focus:shadow-outline"  >Delete</button></a>
+        <a [routerLink]="['/posts/details',post.id]"> <button  class="ml-2 bg-green-500 hover:bg-green-700 text-white py-2 px-2 rounded focus:outline-none focus:shadow-outline"  >Details</button></a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="flex-1"><router-outlet></router-outlet></div>
+
+</div>
+</div>
+
+</div>
+</div>
+
